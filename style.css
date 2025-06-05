@@ -4,6 +4,9 @@
     --background-color: #f5f7fa;
     --text-color: #333;
     --muted-color: #666;
+    --header-gradient: linear-gradient(135deg, #4b6cb7, #182848);
+    --section-bg: #ffffff;
+    --section-shadow: rgba(0, 0, 0, 0.05);
 }
 
 body {
@@ -16,52 +19,58 @@ body {
 }
 
 header {
-    background: #fff;
-    border-bottom: 1px solid #e6e6e6;
+    background: var(--header-gradient);
+    color: #fff;
     text-align: center;
-    padding: 60px 20px;
+    padding: 80px 20px;
+    box-shadow: 0 2px 4px var(--section-shadow);
 }
 
 header h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 600;
-    color: var(--primary-color);
 }
 
 header p {
-    margin-top: 10px;
+    margin-top: 15px;
     font-size: 1.2rem;
-    color: var(--muted-color);
+    color: #ecf0f1;
 }
 
 main {
-    max-width: 800px;
-    margin: 40px auto;
+    max-width: 900px;
+    margin: 60px auto;
     padding: 0 20px;
 }
 
 section {
-    padding: 20px 0;
-    border-bottom: 1px solid #e6e6e6;
+    padding: 30px 25px;
+    background: var(--section-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px var(--section-shadow);
+    margin-bottom: 30px;
 }
 
 section:last-child {
-    border-bottom: none;
+    margin-bottom: 0;
 }
 
+
 h2 {
-    margin: 0 0 10px;
+    margin: 0 0 15px;
     color: var(--primary-color);
-    font-size: 1.5rem;
+    font-size: 1.6rem;
 }
 
 a {
     color: var(--accent-color);
     text-decoration: none;
+    transition: color 0.2s ease-in-out;
 }
 
 a:hover {
+    color: var(--primary-color);
     text-decoration: underline;
 }
 
@@ -70,4 +79,21 @@ footer {
     padding: 40px 0;
     color: var(--muted-color);
     font-size: 0.9rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #1a1a1a;
+        --text-color: #f0f0f0;
+        --section-bg: #262626;
+        --section-shadow: rgba(0, 0, 0, 0.3);
+    }
+
+    header {
+        box-shadow: none;
+    }
+
+    a:hover {
+        color: var(--accent-color);
+    }
 }
